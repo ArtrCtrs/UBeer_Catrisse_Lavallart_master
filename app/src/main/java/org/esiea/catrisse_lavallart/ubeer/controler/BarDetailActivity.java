@@ -1,4 +1,4 @@
-package org.esiea.catrisse_lavallart.ubeer;
+package org.esiea.catrisse_lavallart.ubeer.controler;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import org.esiea.catrisse_lavallart.ubeer.R;
+import org.esiea.catrisse_lavallart.ubeer.model.Bar;
 
 
 public class BarDetailActivity extends AppCompatActivity {

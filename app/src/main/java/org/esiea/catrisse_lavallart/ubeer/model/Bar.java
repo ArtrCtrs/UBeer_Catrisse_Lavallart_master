@@ -1,4 +1,4 @@
-package org.esiea.catrisse_lavallart.ubeer;
+package org.esiea.catrisse_lavallart.ubeer.model;
 
 import java.io.Serializable;
 
@@ -16,7 +16,7 @@ public class Bar implements Serializable {
     //boolean isOPen;
     //float rank;
 
-    Bar(String name, String address, String isOpen, String rank)
+    public Bar(String name, String address, String isOpen, String rank)
     {
         this.name=name;
         this.address=address;
@@ -31,8 +31,6 @@ public class Bar implements Serializable {
         return this.name;
     }
 
-
-
     public String getAddress()
     {
         return this.address;
@@ -43,7 +41,6 @@ public class Bar implements Serializable {
         return this.isOpen;
     }
 
-
     public String getRank()
     {
         return this.rank;
@@ -52,7 +49,6 @@ public class Bar implements Serializable {
     @Override
     public String toString()
     {
-
         return this.name;
     }
 

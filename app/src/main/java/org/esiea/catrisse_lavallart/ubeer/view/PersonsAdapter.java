@@ -1,4 +1,4 @@
-package org.esiea.catrisse_lavallart.ubeer;
+package org.esiea.catrisse_lavallart.ubeer.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+
+import org.esiea.catrisse_lavallart.ubeer.R;
 
 import java.util.LinkedList;
 
@@ -107,7 +109,7 @@ public class PersonsAdapter extends RecyclerView.Adapter<PersonsAdapter.PersonsH
 
 
 
-    class PersonsHolder extends RecyclerView.ViewHolder{
+    public class PersonsHolder extends RecyclerView.ViewHolder{
         public EditText personName;
         public EditText personLocation;
         public boolean gpsOn;

@@ -1,12 +1,12 @@
-package org.esiea.catrisse_lavallart.ubeer;
+package org.esiea.catrisse_lavallart.ubeer.data;
 
 import android.app.IntentService;
 import android.content.Intent;
 import android.content.Context;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
-import android.widget.Toast;
 
+import org.esiea.catrisse_lavallart.ubeer.controler.SetupActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 

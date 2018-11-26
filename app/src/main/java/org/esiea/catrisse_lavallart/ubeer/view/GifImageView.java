@@ -1,4 +1,4 @@
-package org.esiea.catrisse_lavallart.ubeer;
+package org.esiea.catrisse_lavallart.ubeer.view;
 
 import android.content.Context;
 import android.graphics.Canvas;

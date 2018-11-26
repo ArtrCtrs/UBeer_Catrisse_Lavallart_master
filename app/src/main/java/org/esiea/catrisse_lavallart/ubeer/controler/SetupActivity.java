@@ -1,7 +1,5 @@
-package org.esiea.catrisse_lavallart.ubeer;
+package org.esiea.catrisse_lavallart.ubeer.controler;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
@@ -27,6 +25,11 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
+
+import org.esiea.catrisse_lavallart.ubeer.R;
+import org.esiea.catrisse_lavallart.ubeer.data.GetCoordinatesService;
+import org.esiea.catrisse_lavallart.ubeer.view.GifImageView;
+import org.esiea.catrisse_lavallart.ubeer.view.PersonsAdapter;
 
 import java.util.ArrayList;
 

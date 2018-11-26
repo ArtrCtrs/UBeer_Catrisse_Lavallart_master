@@ -1,4 +1,4 @@
-package org.esiea.catrisse_lavallart.ubeer;
+package org.esiea.catrisse_lavallart.ubeer.view;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 
 import org.esiea.catrisse_lavallart.ubeer.R;
-
-import java.io.Serializable;
+import org.esiea.catrisse_lavallart.ubeer.controler.BarDetailActivity;
+import org.esiea.catrisse_lavallart.ubeer.model.Bar;
 
 
 public class BarsAdapter extends RecyclerView.Adapter<BarsAdapter.BarsHolder>{
