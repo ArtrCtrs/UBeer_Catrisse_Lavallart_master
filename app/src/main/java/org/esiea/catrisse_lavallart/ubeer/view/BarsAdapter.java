@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 
 import org.esiea.catrisse_lavallart.ubeer.R;
-import org.esiea.catrisse_lavallart.ubeer.controler.BarDetailActivity;
+import org.esiea.catrisse_lavallart.ubeer.controller.BarDetailActivity;
 import org.esiea.catrisse_lavallart.ubeer.model.Bar;
 
 

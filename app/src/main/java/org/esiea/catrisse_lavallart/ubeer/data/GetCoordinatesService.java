@@ -6,7 +6,7 @@ import android.content.Context;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
-import org.esiea.catrisse_lavallart.ubeer.controler.SetupActivity;
+import org.esiea.catrisse_lavallart.ubeer.controller.SetupActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,7 +32,7 @@ import java.util.ArrayList;
 public class GetCoordinatesService extends IntentService {
     // TODO: Rename actions, choose action names that describe tasks that this
     // IntentService can perform, e.g. ACTION_FETCH_NEW_ITEMS
-    private static final String ACTION_COORDINATES = "org.esiea.catrisse_turrata.ubeer.action.FOO";
+    private static final String ACTION_COORDINATES = "org.esiea.catrisse_lavallart.ubeer.action.FOO";
     private static final String API_KEY = "AIzaSyBmuUqou3PJXUtJRRS2zZq6Ul7feXdH3EI";
     private static final String PLACES_API_KEY ="AIzaSyDh4ghFcDx-C5i9u4xFosBV47D0x_7DcZE";
     ArrayList locations;

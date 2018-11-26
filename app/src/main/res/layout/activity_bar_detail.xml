@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryLight"
-    tools:context="org.esiea.catrisse_turrata.ubeer.BarDetailActivity">
+    tools:context="org.esiea.catrisse_lavallart.ubeer.controller.BarDetailActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

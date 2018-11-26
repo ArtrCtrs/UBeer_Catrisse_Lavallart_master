@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryLight"
-    tools:context="org.esiea.catrisse_turrata.ubeer.ResultsActivity">
+    tools:context="org.esiea.catrisse_lavallart.ubeer.controller.ResultsActivity">
 
     <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schema.android.com/apk/res-auto"

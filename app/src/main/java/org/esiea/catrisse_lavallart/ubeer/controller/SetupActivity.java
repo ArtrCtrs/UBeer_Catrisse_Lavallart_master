@@ -1,4 +1,4 @@
-package org.esiea.catrisse_lavallart.ubeer.controler;
+package org.esiea.catrisse_lavallart.ubeer.controller;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;

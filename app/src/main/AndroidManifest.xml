@@ -12,20 +12,19 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controler.SetupActivity">
+        <activity android:name=".controller.SetupActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controler.ResultsActivity" />
+        <activity android:name=".controller.ResultsActivity" />
 
         <service
             android:name=".data.GetCoordinatesService"
             android:exported="false" />
 
-        <activity android:name=".controler.BarDetailActivity"></activity>
+        <activity android:name=".controller.BarDetailActivity"/>
     </application>
 
 </manifest>
