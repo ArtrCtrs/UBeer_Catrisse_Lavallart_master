@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("org.esiea.catrisse_turrata.ubeer", appContext.getPackageName());
+        assertEquals("org.esiea.catrisse_lavallart.ubeer", appContext.getPackageName());
     }
 }

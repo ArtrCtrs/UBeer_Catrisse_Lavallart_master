@@ -85,7 +85,7 @@
         android:textColor="@color/colorPrimaryLight"
         android:textSize="10sp" />
 
-    <org.esiea.catrisse_turrata.ubeer.GifImageView
+    <org.esiea.catrisse_lavallart.ubeer.view.GifImageView
         android:id="@+id/GifImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
