@@ -55,7 +55,7 @@
         android:layout_toStartOf="@+id/rv_bar_element_rate"
         android:background="@android:color/transparent"
         app:srcCompat="@android:drawable/btn_star_big_on"
-        android:text="" /> 
+        android:text="" />
 
 
 </RelativeLayout>

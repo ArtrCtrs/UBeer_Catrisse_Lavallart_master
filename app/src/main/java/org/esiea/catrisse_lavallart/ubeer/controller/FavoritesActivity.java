@@ -23,19 +23,18 @@ import java.io.IOException;
 import java.io.InputStream;
 
 
-public class ResultsActivity extends AppCompatActivity {
-    public static final String COORDINATES_UPDATE = "com.octip.cours.inf4042_11.BIERS_UPDATE";
+public class FavoritesActivity extends AppCompatActivity {
 
     private static final String PLACES_API_KEY ="AIzaSyDh4ghFcDx-C5i9u4xFosBV47D0x_7DcZE";
+
     private BarsAdapter bAdapter;
     protected Context context;
     private Bar[] BarArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.w("TEST","CREATE");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_results);
+        setContentView(R.layout.activity_favorites);
 
         context = getApplicationContext();
 
@@ -45,72 +44,12 @@ public class ResultsActivity extends AppCompatActivity {
         barsView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         fillBars();
-        bAdapter = new BarsAdapter(BarArray);
-        barsView.setAdapter(bAdapter);
+        //bAdapter = new BarsAdapter(BarArray);
+        //barsView.setAdapter(bAdapter);
 
     }
 
     public void fillBars() {
-        try {
-            JSONArray JSONBarArray = getCoordinatesFromFile().getJSONArray("results");
-            int JSONBarArrayLength = JSONBarArray.length();
-
-            BarArray = new Bar[JSONBarArrayLength];
-
-            for (int i = 0; i < JSONBarArrayLength; i++) {
-                JSONObject tmpJSONBar = JSONBarArray.getJSONObject(i);
-
-
-                String name;
-                String address;
-                String isOpen;
-                String rank;
-                String imageUrl="";
-
-                if (tmpJSONBar.has("opening_hours")) {
-                    if (tmpJSONBar.getJSONObject("opening_hours").has("open_now")) {
-                        isOpen = tmpJSONBar.getJSONObject("opening_hours").getString("open_now");
-                    } else {
-                        isOpen = "?";
-                    }
-                } else {
-                    isOpen = "?";
-                }
-                if (tmpJSONBar.has("rating")) {
-                    rank = tmpJSONBar.getString("rating");
-                } else {
-                    rank = "?";
-                }
-                if (tmpJSONBar.has("name")) {
-                    name = tmpJSONBar.getString("name");
-                } else {
-                    name = "?";
-                }
-                if (tmpJSONBar.has("vicinity")) {
-                    address = tmpJSONBar.getString("vicinity");
-                } else {
-                    address = "?";
-                }
-                if (tmpJSONBar.has("photos")) {
-                    Log.w("TEST","photos");
-                    if (tmpJSONBar.getJSONArray("photos").getJSONObject(0).has("photo_reference")) {
-                        Log.w("TEST","secondifphoto");
-                        imageUrl="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=";
-                        imageUrl += tmpJSONBar.getJSONArray("photos").getJSONObject(0).getString("photo_reference");
-                        imageUrl+="&sensor=false&key="+PLACES_API_KEY;
-                        //imageUrl="https://lh3.googleusercontent.com/p/AF1QipPjjEozAmJxLdmd0BA1RO_nf5GazdlkkwXWtSmq=s1600-w400";
-                    }
-                }else {
-                        imageUrl = "https://cooking.minguet.fr/imgs/placeholder.png";
-
-                }
-
-                BarArray[i] = new Bar(name, address, isOpen, rank, imageUrl);
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override

@@ -26,6 +26,7 @@
             android:exported="false" />
 
         <activity android:name=".controller.BarDetailActivity"/>
+        <activity android:name=".controller.FavoritesActivity"/>
     </application>
 
 </manifest>
