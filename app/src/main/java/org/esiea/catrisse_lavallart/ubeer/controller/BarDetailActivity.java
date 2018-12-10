@@ -4,12 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import org.esiea.catrisse_lavallart.ubeer.R;
+import org.esiea.catrisse_lavallart.ubeer.data.Utils;
 import org.esiea.catrisse_lavallart.ubeer.model.Bar;
 
 
@@ -20,6 +25,7 @@ public class BarDetailActivity extends AppCompatActivity {
     TextView isOpen;
     TextView rank;
     Context context;
+    ImageView imageView;
 
 
     @Override
@@ -33,6 +39,7 @@ public class BarDetailActivity extends AppCompatActivity {
         address=(TextView)findViewById(R.id.address);
         isOpen=(TextView)findViewById(R.id.isOpen);
         rank=(TextView)findViewById(R.id.rank);
+        imageView=(ImageView) findViewById(R.id.imageView);
 
         selectedBar = (Bar)getIntent().getSerializableExtra("selectedBar");
 
@@ -49,6 +56,12 @@ public class BarDetailActivity extends AppCompatActivity {
             openString="?";
         }
         isOpen.setText(openString);
+        Picasso.with(context)
+                .load(selectedBar.getUrl())
+                .resize(400,400)
+                .into(imageView);
+        //imageView.setBackground(Utils.LoadImageFromWebOperations(selectedBar.getUrl()));
+
 
     }
     @Override
@@ -62,6 +75,7 @@ public class BarDetailActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.B:
                 startActivity(new Intent(context, SetupActivity.class));
+                finish();
                 break;
 
         }

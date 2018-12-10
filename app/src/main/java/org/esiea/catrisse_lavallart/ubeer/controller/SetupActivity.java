@@ -245,6 +245,7 @@ public class SetupActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.B:
                 startActivity(new Intent(context, SetupActivity.class));
+                finish();
                 break;
 
         }
@@ -264,6 +265,7 @@ public class SetupActivity extends AppCompatActivity {
                 toast.show();
                 notificationManager.notify(NOTIFICATION_ID, notifBuilder.build());
                 startActivity(new Intent(context, ResultsActivity.class));
+                finish();
             } else {
                 alertBuilder.setTitle(R.string.warning_title)
                         .setMessage(R.string.warning_notfound_message);

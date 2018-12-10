@@ -42,7 +42,7 @@ public class BarsAdapter extends RecyclerView.Adapter<BarsAdapter.BarsHolder>{
 
             holder.barName.setText(barsArray[position].getName());
         holder.barRate.setTextColor(Color.parseColor("#996633"));
-            if(barsArray[position].getRank()!="?"){
+            if(!barsArray[position].getRank().equals("?")){
                 float rank = Float.parseFloat(barsArray[position].getRank());
                 if(rank>3.9){
                     holder.barRate.setTextColor(Color.parseColor("#008000"));
@@ -96,6 +96,7 @@ public class BarsAdapter extends RecyclerView.Adapter<BarsAdapter.BarsHolder>{
                     Intent i = new Intent(context, BarDetailActivity.class);
                     i.putExtra("selectedBar",barsArray[itemPosition]);
                     context.startActivity(i);
+
                 }
             });
         }

@@ -13,15 +13,15 @@ public class Bar implements Serializable {
     String address;
     String isOpen;
     String rank;
-    //boolean isOPen;
-    //float rank;
+    String imageUrl;
 
-    public Bar(String name, String address, String isOpen, String rank)
+    public Bar(String name, String address, String isOpen, String rank, String imageUrl)
     {
         this.name=name;
         this.address=address;
         this.isOpen=isOpen;
         this.rank=rank;
+        this.imageUrl=imageUrl;
 
     }
 
@@ -45,6 +45,10 @@ public class Bar implements Serializable {
     {
         return this.rank;
     }
+    public String getUrl()
+    {
+        return this.imageUrl;
+    }
 
     @Override
     public String toString()
@@ -52,16 +56,5 @@ public class Bar implements Serializable {
         return this.name;
     }
 
-
-   /* public void setName(String name)
-    {
-    this.name=name;
-    }
-
-
-    public void setAdress(String name)
-    {
-        this.adress=adress;
-    }*/
 
 }

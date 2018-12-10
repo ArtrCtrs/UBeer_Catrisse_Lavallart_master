@@ -62,7 +62,7 @@ public class PersonsAdapter extends RecyclerView.Adapter<PersonsAdapter.PersonsH
             }
         else if(holder.exemple==2){
             focusable=true;
-            name="Augustin";
+            name="Martin";
             location="Paris";
         }
         else{

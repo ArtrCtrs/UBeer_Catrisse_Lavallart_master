@@ -26,10 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="33dp"
         android:background="@color/colorPrimaryDark"
         android:text="@string/button_text"
-        android:textColor="@color/colorPrimaryLight"/>
+        android:textColor="@color/colorPrimaryLight" />
 
     <Button
         android:id="@+id/add_Person"

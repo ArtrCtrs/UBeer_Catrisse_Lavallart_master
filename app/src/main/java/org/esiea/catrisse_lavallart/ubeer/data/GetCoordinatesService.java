@@ -98,7 +98,6 @@ public class GetCoordinatesService extends IntentService {
         for(int j=0;j<locations.size();j++) {
 
 
-            // Log.d("AAA","Thread service name : "+Thread.currentThread().getName());
             URL url = null;
 
             try {
@@ -174,9 +173,11 @@ public class GetCoordinatesService extends IntentService {
 
             //SECOND REQUEST
 
+            https://maps.googleapis.com/maps/api/place/photo?maxwidth=500&photoreference=CnRvAAAAwMpdHeWlXl-lH0vp7lez4znKPIWSWvgvZFISdKx45AwJVP1Qp37YOrH7sqHMJ8C-vBDC546decipPHchJhHZL94RcTUfPa1jWzo-rSHaTlbNtjh-N68RkcToUCuY9v2HNpo5mziqkir37WU8FJEqVBIQ4k938TI3e7bf8xq-uwDZcxoUbO_ZJzPxremiQurAYzCTwRhE_V0&sensor=false&key=AddYourOwnKeyHere
             try {
                 String urlString = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + averageLat + "," + averageLng + "&radius=500&type=bar&key=" + PLACES_API_KEY;
                 url = new URL(urlString);
+                Log.w("URL",urlString);
                 HttpURLConnection conn2 = (HttpURLConnection) url.openConnection();
                 conn2.setRequestMethod("GET");
                 conn2.connect();
@@ -202,9 +203,9 @@ public class GetCoordinatesService extends IntentService {
         }
         else{
             myIntent.putExtra("RESULT", 0);
-            Log.d("AAA","coucou3");
         }
         LocalBroadcastManager.getInstance(this).sendBroadcast(myIntent);
+
     }
 
     private void copyInputStreamToFile(InputStream in, File file) {
