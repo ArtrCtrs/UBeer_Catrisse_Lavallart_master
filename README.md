@@ -19,9 +19,9 @@ Dans cette activité, il y a également la possibilité d’ajouter le bar en qu
 
 Afin d’accéder à sa liste de favoris, il faut cliquer sur l’étoile du menu (en haut). Ceci ouvre une autre activité, similaire à celle des résultats, avec un RecyclerView pour afficher ces favoris. Il est ici aussi possible d’ouvrir une nouvelle activité au click sur un des bars avec le détail sur celui-ci.
 
-Si l’on clique sur le deuxième item du menu, la choppe de bière, on ouvre une « SetupACtivity », qui permet de recommencer une recherche d’adresses.
+Si l’on clique sur le deuxième item du menu, la chope de bière, on ouvre une « SetupACtivity », qui permet de recommencer une recherche d’adresses.
 
-Nous avons organisé l’architecture du code en plusieurs dossiers : « controler » avec les différentes activités, « data » pour tous les échanges avec les 2 API et la base de données SQLite, « model » pour les classes génériques, et « view » pour les adapteurs et outils d’affichage ». Tous les fichiers XML sont dans les ressources, en version portrait et en version paysage. Tous les textes sont des strings.xml, en version anglaise et française, et s’adapte en fonction de la langue du téléphone.
+Nous avons organisé l’architecture du code en plusieurs dossiers : « controler » avec les différentes activités, « data » pour tous les échanges avec les 2 API et la base de données SQLite, « model » pour les classes génériques, et « view » pour les adapteurs et outils d’affichage ». Tous les fichiers XML sont dans les ressources, en version portrait et en version paysage. Tous les textes sont dans strings.xml, en version anglaise et française, et s’adaptent en fonction de la langue du téléphone.
 
 Nous avons créé une branche secondaire sur Git afin de pouvoir travailler en simultané sur différents aspects de l’application.
 
