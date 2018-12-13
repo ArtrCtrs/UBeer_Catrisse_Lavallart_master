@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/UBeer_Catrisse_Lavallart_master.iml" filepath="$PROJECT_DIR$/UBeer_Catrisse_Lavallart_master.iml" />
-      <module fileurl="file://C:\Users\arthu\AndroidStudioProjects\UBeer_Catrisse_Lavallart_master\UBeer_Catrisse_Lavallart_mastera.iml" filepath="C:\Users\arthu\AndroidStudioProjects\UBeer_Catrisse_Lavallart_master\UBeer_Catrisse_Lavallart_mastera.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UBeer_Catrisse_Lavallart_mastera.iml" filepath="$PROJECT_DIR$/UBeer_Catrisse_Lavallart_mastera.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

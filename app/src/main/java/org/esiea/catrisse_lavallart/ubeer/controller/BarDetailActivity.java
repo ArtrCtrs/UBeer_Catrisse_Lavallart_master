@@ -83,9 +83,10 @@ public class BarDetailActivity extends AppCompatActivity {
         BarBDD bd = new BarBDD(this);
         bd.open();
         //On insère le bar que l'on vient de créer
-        bd.insertBar(bar);
+        long test = bd.insertBar(bar);
         bd.close();
-        Toast.makeText(this, "Favori ajouté", Toast.LENGTH_SHORT).show();
+        if (test!=0)
+            Toast.makeText(this, "Favori ajouté", Toast.LENGTH_SHORT).show();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){

@@ -50,16 +50,20 @@ public class BarBDD {
     }
 
     public long insertBar(Bar bar){
+        if (test(bar.getName()) == false)
         //Création d'un ContentValues (fonctionne comme une HashMap)
-        ContentValues values = new ContentValues();
-        //on lui ajoute une valeur associée à une clé (qui est le nom de la colonne dans laquelle on veut mettre la valeur)
-        values.put(COL_NAME, bar.getName());
-        values.put(COL_ADDRESS, bar.getAddress());
-        values.put(COL_ISOPEN, bar.getIsOpen());
-        values.put(COL_RANK, bar.getRank());
-        values.put(COL_URL, bar.getUrl());
-        //on insère l'objet dans la BDD via le ContentValues
-        return bdd.insert(TABLE_BAR, null, values);
+        {
+            ContentValues values = new ContentValues();
+            values.put(COL_NAME, bar.getName());
+            values.put(COL_ADDRESS, bar.getAddress());
+            values.put(COL_ISOPEN, bar.getIsOpen());
+            values.put(COL_RANK, bar.getRank());
+            values.put(COL_URL, bar.getUrl());
+            //on insère l'objet dans la BDD via le ContentValues
+            return bdd.insert(TABLE_BAR, null, values);
+        }
+
+        return 0;
     }
 
 
@@ -81,6 +85,13 @@ public class BarBDD {
         //Récupère dans un Cursor les valeurs correspondant à un bar contenu dans la BDD (ici on sélectionne le bar grâce à son titre)
         Cursor c = bdd.query(TABLE_BAR, new String[] {COL_ID, COL_NAME, COL_ADDRESS,COL_ISOPEN,COL_RANK,COL_URL}, null, null, null, null, null);
         return allcursorToBar(c);
+    }
+    private boolean test (String name){
+        Cursor c = bdd.query(TABLE_BAR, new String[] {COL_ID, COL_NAME, COL_ADDRESS,COL_ISOPEN,COL_RANK,COL_URL}, COL_NAME + " LIKE \"" + name +"\"", null, null, null, null);
+        if (c.getCount() == 0)
+            return false;
+        else
+            return true;
     }
 
     //Cette méthode permet de convertir un cursor en un bar

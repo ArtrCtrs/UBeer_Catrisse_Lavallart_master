@@ -12,3 +12,7 @@ Then, using the center point of all these places, another request with be done(u
 Contributors :
 Arthur Catrisse
 Martin Lavallart
+
+MaBaseSQLlite permet d'instancier la base de données
+BarBDD permet de manipuler les données de la base de données (select, ajout, suppression )
+Les données sont sauvgardées en local sur le téléphone ce qui permet de garder les données lors de la fermeture de l'application.

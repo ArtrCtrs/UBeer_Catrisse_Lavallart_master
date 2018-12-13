@@ -44,10 +44,11 @@ public class FavoritesActivity extends AppCompatActivity {
         context = getApplicationContext();
 
         getBarsFromDatabase();
-
-        bAdapter = new BarsFavAdapter(barArray);
-        barsView.setAdapter(bAdapter);
-        Log.d("BDD","endOnCerate");
+        if (barArray != null) {
+            bAdapter = new BarsFavAdapter(barArray);
+            barsView.setAdapter(bAdapter);
+            Log.d("BDD", "endOnCerate");
+        }
 
 
     }
@@ -56,10 +57,6 @@ public class FavoritesActivity extends AppCompatActivity {
         BarBDD bd = new BarBDD(this);
         bd.open();
         barArray= bd.getBars();
-        for(Bar b: barArray){
-            Log.d("BDD",b.getName());
-        }
-
         bd.close();
     }
 

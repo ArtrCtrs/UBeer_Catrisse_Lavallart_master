@@ -65,7 +65,6 @@ public class SetupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup);
         context = getApplicationContext();
-
         personsView = (RecyclerView) findViewById(R.id.rv_persons);
         addPerson = (Button) findViewById(R.id.add_Person);
         gpsButton = (Button) findViewById(R.id.gps_me);
