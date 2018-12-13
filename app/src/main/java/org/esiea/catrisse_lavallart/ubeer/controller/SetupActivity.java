@@ -27,7 +27,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import org.esiea.catrisse_lavallart.ubeer.R;
+import org.esiea.catrisse_lavallart.ubeer.data.BarBDD;
 import org.esiea.catrisse_lavallart.ubeer.data.GetCoordinatesService;
+import org.esiea.catrisse_lavallart.ubeer.model.Bar;
 import org.esiea.catrisse_lavallart.ubeer.view.GifImageView;
 import org.esiea.catrisse_lavallart.ubeer.view.PersonsAdapter;
 
@@ -55,11 +57,13 @@ public class SetupActivity extends AppCompatActivity {
     private static final int NOTIFICATION_ID = 1;
     private static final String NOTIFICATION_CHANNEL_ID = "my_notification_channel";
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup);
-
         context = getApplicationContext();
 
         personsView = (RecyclerView) findViewById(R.id.rv_persons);

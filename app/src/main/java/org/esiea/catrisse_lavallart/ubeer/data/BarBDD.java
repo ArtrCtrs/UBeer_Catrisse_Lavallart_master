@@ -67,10 +67,19 @@ public class BarBDD {
         //Suppression d'un livre de la BDD grâce à l'ID
         return bdd.delete(TABLE_BAR, COL_NAME + " = " +name, null);
     }
+    public int removeBar(){
+        //Suppression d'un livre de la BDD grâce à l'ID
+        return bdd.delete(TABLE_BAR,null,null) ;
+    }
 
     public Bar getBarwithName(String name){
         //Récupère dans un Cursor les valeurs correspondant à un livre contenu dans la BDD (ici on sélectionne le livre grâce à son titre)
         Cursor c = bdd.query(TABLE_BAR, new String[] {COL_ID, COL_NAME, COL_ADDRESS,COL_ISOPEN,COL_RANK,COL_URL}, COL_NAME + " LIKE \"" + name +"\"", null, null, null, null);
+        return cursorToBar(c);
+    }
+    public Bar getBarwitindex(){
+        //Récupère dans un Cursor les valeurs correspondant à un livre contenu dans la BDD (ici on sélectionne le livre grâce à son titre)
+        Cursor c = bdd.query(TABLE_BAR, new String[] {COL_ID, COL_NAME, COL_ADDRESS,COL_ISOPEN,COL_RANK,COL_URL}, null, null, null, null, null);
         return cursorToBar(c);
     }
 

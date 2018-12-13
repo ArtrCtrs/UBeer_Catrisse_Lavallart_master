@@ -12,11 +12,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
 import org.esiea.catrisse_lavallart.ubeer.R;
-import org.esiea.catrisse_lavallart.ubeer.data.Utils;
+import org.esiea.catrisse_lavallart.ubeer.controller.SetupActivity;
+import org.esiea.catrisse_lavallart.ubeer.data.BarBDD;
 import org.esiea.catrisse_lavallart.ubeer.model.Bar;
 
 
@@ -77,7 +79,14 @@ public class BarDetailActivity extends AppCompatActivity {
 
     public void clickAddFavorite(){
         Log.d("TEST","clickaddfav");
-
+        Bar bar = new Bar(selectedBar.getName(),selectedBar.getAddress(),selectedBar.getIsOpen(),selectedBar.getRank(),selectedBar.getUrl());
+        //On ouvre la base de données pour écrire dedans
+        BarBDD bd = new BarBDD(this);
+        bd.open();
+        //On insère le livre que l'on vient de créer
+        bd.insertBar(bar);
+        bd.close();
+        Toast.makeText(this, "favoris ajouté", Toast.LENGTH_LONG).show();
         //add to bdd :
         //
         //selectedBar.getName()

@@ -6,11 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.widget.Toast;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import org.esiea.catrisse_lavallart.ubeer.data.BarBDD;
 import org.esiea.catrisse_lavallart.ubeer.view.BarsAdapter;
 import org.esiea.catrisse_lavallart.ubeer.R;
 import org.esiea.catrisse_lavallart.ubeer.model.Bar;
@@ -38,19 +39,22 @@ public class FavoritesActivity extends AppCompatActivity {
 
         context = getApplicationContext();
 
-        final RecyclerView barsView = (RecyclerView) findViewById(R.id.rv_bars);
-        final Context context = getApplicationContext();
-
-        barsView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-
-        fillBars();
+        BarBDD bd = new BarBDD(this);
+        bd.open();
+        Bar bar= bd.getBarwitindex();
+        //Si un livre est retourné (donc si le livre à bien été ajouté à la BDD)
+        if(bar != null){
+            //On affiche les infos du livre dans un Toast
+            Toast.makeText(this, bar.toString(), Toast.LENGTH_LONG).show();
+            //On modifie le titre du livre
+        }
+        bd.close();
         //bAdapter = new BarsAdapter(BarArray);
         //barsView.setAdapter(bAdapter);
 
     }
 
-    public void fillBars() {
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
