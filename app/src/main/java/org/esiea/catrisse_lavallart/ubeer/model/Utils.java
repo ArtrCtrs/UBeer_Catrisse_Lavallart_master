@@ -1,4 +1,4 @@
-package org.esiea.catrisse_lavallart.ubeer.data;
+package org.esiea.catrisse_lavallart.ubeer.model;
 
 import android.graphics.drawable.Drawable;
 
