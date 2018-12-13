@@ -27,7 +27,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import org.esiea.catrisse_lavallart.ubeer.R;
+import org.esiea.catrisse_lavallart.ubeer.data.BarBDD;
 import org.esiea.catrisse_lavallart.ubeer.data.GetCoordinatesService;
+import org.esiea.catrisse_lavallart.ubeer.model.Bar;
 import org.esiea.catrisse_lavallart.ubeer.view.GifImageView;
 import org.esiea.catrisse_lavallart.ubeer.view.PersonsAdapter;
 
@@ -55,13 +57,14 @@ public class SetupActivity extends AppCompatActivity {
     private static final int NOTIFICATION_ID = 1;
     private static final String NOTIFICATION_CHANNEL_ID = "my_notification_channel";
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup);
-
         context = getApplicationContext();
-
         personsView = (RecyclerView) findViewById(R.id.rv_persons);
         addPerson = (Button) findViewById(R.id.add_Person);
         gpsButton = (Button) findViewById(R.id.gps_me);
@@ -245,12 +248,12 @@ public class SetupActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.Fav:
                 Intent i = new Intent(context, FavoritesActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 break;
             case R.id.New:
                 Intent j = new Intent(context, SetupActivity.class);
-                j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                //j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(j);
                 break;
         }

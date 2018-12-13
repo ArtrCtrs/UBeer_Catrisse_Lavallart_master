@@ -3,11 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:title="favorites"
         android:id="@+id/Fav"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/stardark2"
         android:visible="true"
         app:showAsAction="always" />
     <item
+        android:title="new"
         android:id="@+id/New"
         android:icon="@drawable/beer_icon"
         android:visible="true"

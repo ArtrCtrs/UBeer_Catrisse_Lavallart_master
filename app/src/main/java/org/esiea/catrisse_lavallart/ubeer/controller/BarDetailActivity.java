@@ -8,13 +8,17 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
 import org.esiea.catrisse_lavallart.ubeer.R;
-import org.esiea.catrisse_lavallart.ubeer.data.Utils;
+import org.esiea.catrisse_lavallart.ubeer.controller.SetupActivity;
+import org.esiea.catrisse_lavallart.ubeer.data.BarBDD;
 import org.esiea.catrisse_lavallart.ubeer.model.Bar;
 
 
@@ -26,6 +30,7 @@ public class BarDetailActivity extends AppCompatActivity {
     TextView rank;
     Context context;
     ImageView imageView;
+    Button addFavoriteButton;
 
 
     @Override
@@ -40,6 +45,8 @@ public class BarDetailActivity extends AppCompatActivity {
         isOpen=(TextView)findViewById(R.id.isOpen);
         rank=(TextView)findViewById(R.id.rank);
         imageView=(ImageView) findViewById(R.id.imageView);
+
+        addFavoriteButton = (Button)findViewById(R.id.addFavorite);
 
         selectedBar = (Bar)getIntent().getSerializableExtra("selectedBar");
 
@@ -62,7 +69,24 @@ public class BarDetailActivity extends AppCompatActivity {
                 .into(imageView);
         //imageView.setBackground(Utils.LoadImageFromWebOperations(selectedBar.getUrl()));
 
+        addFavoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickAddFavorite();
+            }
+        });
+    }
 
+    public void clickAddFavorite(){
+        Bar bar = new Bar(selectedBar.getName(),selectedBar.getAddress(),selectedBar.getIsOpen(),selectedBar.getRank(),selectedBar.getUrl());
+        //On ouvre la base de données pour écrire dedans
+        BarBDD bd = new BarBDD(this);
+        bd.open();
+        //On insère le bar que l'on vient de créer
+        long test = bd.insertBar(bar);
+        bd.close();
+        if (test!=0)
+            Toast.makeText(this, "Favori ajouté", Toast.LENGTH_SHORT).show();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -75,12 +99,12 @@ public class BarDetailActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.Fav:
                 Intent i = new Intent(context, FavoritesActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 break;
             case R.id.New:
                 Intent j = new Intent(context, SetupActivity.class);
-                j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+               // j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(j);
                 break;
         }
