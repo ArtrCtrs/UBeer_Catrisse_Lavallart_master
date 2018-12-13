@@ -64,26 +64,26 @@ public class BarBDD {
 
 
     public int removeBarWithName(String name){
-        //Suppression d'un livre de la BDD grâce à l'ID
+        //Suppression d'un bar de la BDD grâce à l'ID
         return bdd.delete(TABLE_BAR, COL_NAME + " = " +name, null);
     }
     public int removeBar(){
-        //Suppression d'un livre de la BDD grâce à l'ID
+        //Suppression d'un bar de la BDD grâce à l'ID
         return bdd.delete(TABLE_BAR,null,null) ;
     }
 
     public Bar getBarwithName(String name){
-        //Récupère dans un Cursor les valeurs correspondant à un livre contenu dans la BDD (ici on sélectionne le livre grâce à son titre)
+        //Récupère dans un Cursor les valeurs correspondant à un bar contenu dans la BDD (ici on sélectionne le bar grâce à son titre)
         Cursor c = bdd.query(TABLE_BAR, new String[] {COL_ID, COL_NAME, COL_ADDRESS,COL_ISOPEN,COL_RANK,COL_URL}, COL_NAME + " LIKE \"" + name +"\"", null, null, null, null);
         return cursorToBar(c);
     }
-    public Bar getBarwitindex(){
-        //Récupère dans un Cursor les valeurs correspondant à un livre contenu dans la BDD (ici on sélectionne le livre grâce à son titre)
+    public Bar[] getBars(){
+        //Récupère dans un Cursor les valeurs correspondant à un bar contenu dans la BDD (ici on sélectionne le bar grâce à son titre)
         Cursor c = bdd.query(TABLE_BAR, new String[] {COL_ID, COL_NAME, COL_ADDRESS,COL_ISOPEN,COL_RANK,COL_URL}, null, null, null, null, null);
-        return cursorToBar(c);
+        return allcursorToBar(c);
     }
 
-    //Cette méthode permet de convertir un cursor en un livre
+    //Cette méthode permet de convertir un cursor en un bar
     private Bar cursorToBar(Cursor c){
         //si aucun élément n'a été retourné dans la requête, on renvoie null
         if (c.getCount() == 0)
@@ -102,7 +102,30 @@ public class BarBDD {
         //On ferme le cursor
         c.close();
 
-        //On retourne le livre
         return bar;
+    }
+    private Bar[] allcursorToBar(Cursor c){
+        Bar[] BarArray =  new Bar[c.getCount()];
+
+        //si aucun élément n'a été retourné dans la requête, on renvoie null
+        if (c.getCount() == 0)
+            return null;
+        c.moveToFirst();
+        for(int i = 0; i <= c.getCount(); i++){
+            Bar bar = new Bar();
+            //on lui affecte toutes les infos grâce aux infos contenues dans le Cursor
+            bar.setName(c.getString(NUM_COL_NAME));
+            bar.setAddress(c.getString(NUM_COL_ADDRESS));
+            bar.setIsopen(c.getString(NUM_COL_ISOPEN));
+            bar.setRank(c.getString(NUM_COL_RANK));
+            bar.setUrl(c.getString(NUM_COL_URL));
+            BarArray[i]= bar;
+            c.moveToNext();
+        }
+        //On ferme le cursor
+        c.close();
+
+        //On retourne le livre
+        return BarArray;
     }
 }

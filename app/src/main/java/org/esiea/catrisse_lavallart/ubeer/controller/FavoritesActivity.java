@@ -41,16 +41,11 @@ public class FavoritesActivity extends AppCompatActivity {
 
         BarBDD bd = new BarBDD(this);
         bd.open();
-        Bar bar= bd.getBarwitindex();
-        //Si un livre est retourné (donc si le livre à bien été ajouté à la BDD)
-        if(bar != null){
-            //On affiche les infos du livre dans un Toast
-            Toast.makeText(this, bar.toString(), Toast.LENGTH_LONG).show();
-            //On modifie le titre du livre
-        }
+        Bar[] bar= bd.getBars();
+
+
         bd.close();
-        //bAdapter = new BarsAdapter(BarArray);
-        //barsView.setAdapter(bAdapter);
+
 
     }
 
