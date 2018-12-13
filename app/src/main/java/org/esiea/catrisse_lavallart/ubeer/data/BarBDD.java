@@ -111,7 +111,7 @@ public class BarBDD {
         if (c.getCount() == 0)
             return null;
         c.moveToFirst();
-        for(int i = 0; i <= c.getCount(); i++){
+        for(int i = 0; i < c.getCount(); i++){
             Bar bar = new Bar();
             //on lui affecte toutes les infos grâce aux infos contenues dans le Cursor
             bar.setName(c.getString(NUM_COL_NAME));

@@ -42,9 +42,8 @@ public class FavoritesActivity extends AppCompatActivity {
         BarBDD bd = new BarBDD(this);
         bd.open();
         Bar[] bar= bd.getBars();
-
-
         bd.close();
+
 
 
     }
