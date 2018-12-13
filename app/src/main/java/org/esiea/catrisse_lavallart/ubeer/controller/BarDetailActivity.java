@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,6 +28,7 @@ public class BarDetailActivity extends AppCompatActivity {
     TextView rank;
     Context context;
     ImageView imageView;
+    Button addFavoriteButton;
 
 
     @Override
@@ -40,6 +43,8 @@ public class BarDetailActivity extends AppCompatActivity {
         isOpen=(TextView)findViewById(R.id.isOpen);
         rank=(TextView)findViewById(R.id.rank);
         imageView=(ImageView) findViewById(R.id.imageView);
+
+        addFavoriteButton = (Button)findViewById(R.id.addFavorite);
 
         selectedBar = (Bar)getIntent().getSerializableExtra("selectedBar");
 
@@ -62,7 +67,24 @@ public class BarDetailActivity extends AppCompatActivity {
                 .into(imageView);
         //imageView.setBackground(Utils.LoadImageFromWebOperations(selectedBar.getUrl()));
 
+        addFavoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickAddFavorite();
+            }
+        });
+    }
 
+    public void clickAddFavorite(){
+        Log.d("TEST","clickaddfav");
+
+        //add to bdd :
+        //
+        //selectedBar.getName()
+        //selectedBar.getAddress()
+        //selectedBar.getRank()
+        //selectedBar.getIsOpen()
+        //selectedBar.getUrl()
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){

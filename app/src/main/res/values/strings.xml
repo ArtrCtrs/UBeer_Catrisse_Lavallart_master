@@ -10,5 +10,7 @@
     <string name="address">Address </string>
     <string name="open">Open now !</string>
     <string name="closed">Closed</string>
+    <string name="add_favorite">Add to favorites</string>
+
 
 </resources>
