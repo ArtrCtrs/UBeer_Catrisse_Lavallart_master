@@ -33,7 +33,6 @@ public class ResultsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.w("TEST","CREATE");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
@@ -126,12 +125,12 @@ public class ResultsActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.Fav:
                 Intent i = new Intent(context, FavoritesActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 break;
             case R.id.New:
                 Intent j = new Intent(context, SetupActivity.class);
-                j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                //j.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(j);
                 break;
         }

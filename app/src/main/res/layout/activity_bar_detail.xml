@@ -13,15 +13,14 @@
         android:layout_weight="8"
         android:orientation="vertical">
 
-
-
         <TextView
             android:id="@+id/rank"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="30sp"
-            android:paddingTop="20dp"/>
+            android:paddingTop="20dp"
+            android:transitionName="element"/>
         <Button
             android:id="@+id/addFavorite"
             android:layout_width="match_parent"
@@ -31,7 +30,8 @@
             android:gravity="center"
             android:background="@color/colorPrimaryDark"
             android:text="@string/add_favorite"
-            android:textColor="@color/colorPrimaryLight" />
+            android:textColor="@color/colorPrimaryLight"
+            />
     </LinearLayout>
 
 
@@ -59,7 +59,8 @@
                 android:textAlignment="center"
                 android:paddingBottom="20dp"
                 android:textSize="30sp"
-                android:text="default"/>
+                android:text="default"
+                />
 
             <TextView
                 android:id="@+id/address"

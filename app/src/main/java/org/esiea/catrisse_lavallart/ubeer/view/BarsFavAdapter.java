@@ -1,10 +1,8 @@
 package org.esiea.catrisse_lavallart.ubeer.view;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,54 +17,56 @@ import org.esiea.catrisse_lavallart.ubeer.controller.BarDetailActivity;
 import org.esiea.catrisse_lavallart.ubeer.model.Bar;
 
 
-public class BarsAdapter extends RecyclerView.Adapter<BarsAdapter.BarsHolder>{
+public class BarsFavAdapter extends RecyclerView.Adapter<BarsFavAdapter.BarsFavHolder>{
 
 
 
 
     private Bar barsArray[];
-    public BarsAdapter(Bar barsArray[])
+    public BarsFavAdapter(Bar barsArray[])
     {
         this.barsArray = barsArray;
     }
 
 
     @Override
-    public BarsAdapter.BarsHolder onCreateViewHolder(ViewGroup parent,int viewType){
+    public BarsFavAdapter.BarsFavHolder onCreateViewHolder(ViewGroup parent,int viewType){
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.rv_bar_element, parent, false);
+                .inflate(R.layout.rv_bar_element_fav, parent, false);
 
 
-        return new BarsHolder(itemView);
+        return new BarsFavHolder(itemView);
     }
 
+
+
     @Override
-    public void onBindViewHolder(BarsAdapter.BarsHolder holder, int position) {
+    public void onBindViewHolder(BarsFavAdapter.BarsFavHolder holder, int position) {
 
-            holder.barName.setText(barsArray[position].getName());
+        holder.barName.setText(barsArray[position].getName());
         holder.barRate.setTextColor(Color.parseColor("#996633"));
-            if(!barsArray[position].getRank().equals("?")){
-                float rank = Float.parseFloat(barsArray[position].getRank());
-                if(rank>3.9){
-                    holder.barRate.setTextColor(Color.parseColor("#008000"));
-                }else if(rank>3.4){
-                    holder.barRate.setTextColor(Color.parseColor("#996633"));
-                }else{
-                    holder.barRate.setTextColor(Color.parseColor("#ff1a1a"));
-                }
-            }
-
-            holder.barRate.setText(barsArray[position].getRank());
-
-            if(barsArray[position].getIsOpen().equals("true")){
-                holder.barIsOpen.setText(R.string.open);
-            }else if(barsArray[position].getIsOpen().equals("false")){
-                holder.barIsOpen.setText(R.string.closed);
+        if(!barsArray[position].getRank().equals("?")){
+            float rank = Float.parseFloat(barsArray[position].getRank());
+            if(rank>3.9){
+                holder.barRate.setTextColor(Color.parseColor("#008000"));
+            }else if(rank>3.4){
+                holder.barRate.setTextColor(Color.parseColor("#996633"));
             }else{
-                holder.barIsOpen.setText("?");
+                holder.barRate.setTextColor(Color.parseColor("#ff1a1a"));
             }
+        }
 
-        
+        holder.barRate.setText(barsArray[position].getRank());
+
+        if(barsArray[position].getIsOpen().equals("true")){
+            holder.barIsOpen.setText(R.string.open);
+        }else if(barsArray[position].getIsOpen().equals("false")){
+            holder.barIsOpen.setText(R.string.closed);
+        }else{
+            holder.barIsOpen.setText("?");
+        }
+
+
     }
 
     @Override
@@ -79,22 +79,20 @@ public class BarsAdapter extends RecyclerView.Adapter<BarsAdapter.BarsHolder>{
         notifyDataSetChanged();
     }
 
-    class BarsHolder extends RecyclerView.ViewHolder {
+    class BarsFavHolder extends RecyclerView.ViewHolder {
 
         public TextView barName;
         public TextView barRate;
         public TextView barIsOpen;
         public RelativeLayout layout;
-        public BarsHolder(View itemView){
+        public BarsFavHolder(View itemView){
 
             super(itemView);
-            final View iv = itemView;
             barName=(TextView) itemView.findViewById(R.id.rv_bar_element_name);
             barIsOpen=(TextView) itemView.findViewById(R.id.rv_bar_element_isOpen);
             barRate=(TextView) itemView.findViewById(R.id.rv_bar_element_rate);
             layout=(RelativeLayout) itemView.findViewById(R.id.rv_bar_element);
 
-            Log.d("VIEW","holder");
 
             layout.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -103,9 +101,7 @@ public class BarsAdapter extends RecyclerView.Adapter<BarsAdapter.BarsHolder>{
                     int itemPosition = getAdapterPosition();
                     Intent i = new Intent(context, BarDetailActivity.class);
                     i.putExtra("selectedBar",barsArray[itemPosition]);
-                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context,
-                            (View)iv.findViewById(R.id.rv_bar_element_rate), "element");
-                    context.startActivity(i,options.toBundle());
+                    context.startActivity(i);
 
                 }
             });
